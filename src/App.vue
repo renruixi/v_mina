@@ -1,15 +1,12 @@
 <template>
   <div id="app">
-    <m-checkbox-group>
-      <m-checkbox value="123"></m-checkbox>
-      <m-checkbox value="234"></m-checkbox>
-      <m-checkbox value="345"></m-checkbox>
-    </m-checkbox-group>
+    <m-slider value="123" :maxlength="10" :minlength="8"></m-slider>
   </div>
 </template>
 
 <script>
-import { mCheckbox, mCheckboxGroup } from './components/form/checkbox'
+import mSlider from './components/form/slider'
+
 export default {
   name: 'app',
   data() {
@@ -18,18 +15,11 @@ export default {
     }
   },
   components: {
-    mCheckboxGroup,
-    mCheckbox
-  },
-  mounted() {
-    this.$on("mCheckboxGroupChange", function (event) {
-      console.log(event)
-      this._checkBoxChange(event)
-    })
+    mSlider
   },
   methods: {
     groupChange(event) {
-      console.log(event)
+      console.log(event.unchecked)
     }
   }
 }

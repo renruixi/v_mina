@@ -5,6 +5,7 @@
 </template>
 <script>
 import emitter from "../../../../utils/emitter"
+
 export default {
   name: "mCheckboxGroup",
   data() {
@@ -47,7 +48,7 @@ export default {
             this.checkList.unchecked = this.checkList.unchecked.concat(this.checkList.checked.splice(checkedIndex, 1))
           }
       }
-      emitter.$emit("mCheckboxGroupChange", this.checkList)
+      this.$emit("mCheckboxGroupChange", this.checkList)
     }
   }
 }

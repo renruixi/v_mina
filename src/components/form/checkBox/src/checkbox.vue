@@ -1,6 +1,5 @@
 <template>
-  <label class="m_checkbox_label"
-         @change="_checkboxChange">
+  <label class="m_checkbox_label">
     <div class="m_checkbox_wrap">
       <span :class="innerCls"></span>
       <input type="checkbox"
@@ -8,7 +7,8 @@
              :checked="checked"
              :disabled="disabled"
              class="m_checkbox_input"
-             v-model="mChecked" />
+             v-model="mChecked"
+             @change="_handleChange" />
     </div>
     <span class="m_checkbox_name"
           ref="name"><slot></slot></span>
@@ -57,15 +57,17 @@ export default {
     }
   },
   methods: {
-    _checkboxChange(e) {
+    _handleChange(e) {
       var self = this;
       var target = e.target;
-      emitter.$emit("mCheckboxChange", {
+      emitter.$emit("mCheckboxChange", {  //向checkbox-group分发change事件
         checked: self.mChecked,
         value: self.value,
         name: self.name
       })
-    }
+
+      this.$emit("change", e)  //向上分发原生change事件
+    },
   }
 }
 </script>
