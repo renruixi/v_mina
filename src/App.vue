@@ -1,16 +1,11 @@
 <template>
   <div id="app">
-    <m-scroll-view :height="radio" :scroll-x="true">
-      <m-view class="grid-content">1</m-view>
-      <m-view class="grid-content">2</m-view>
-      <m-view class="grid-content">3</m-view>
-      <m-view class="grid-content">4</m-view>
-    </m-scroll-view>
+    <m-button type="default" :plain="true" >123</m-button>
   </div>
 </template>
 
 <script>
-import mScrollView from './components/layout/scroll-view'
+import mButton from './components/form/button'
 import mView from './components/layout/view'
 export default {
   name: 'app',
@@ -21,8 +16,7 @@ export default {
     }
   },
   components: {
-    mScrollView,
-    mView
+    mButton
   },
   mounted() {
 
