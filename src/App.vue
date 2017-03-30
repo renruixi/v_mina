@@ -1,25 +1,36 @@
 <template>
   <div id="app">
-    <m-button type="default" :plain="true" >123</m-button>
+    <m-checkbox-group>
+      <m-checkbox value="123"></m-checkbox>
+      <m-checkbox value="234"></m-checkbox>
+      <m-checkbox value="345"></m-checkbox>
+    </m-checkbox-group>
   </div>
 </template>
 
 <script>
-import mButton from './components/form/button'
-import mView from './components/layout/view'
+import { mCheckbox, mCheckboxGroup } from './components/form/checkbox'
 export default {
   name: 'app',
   data() {
     return {
       radio: "100",
-      show: true
     }
   },
   components: {
-    mButton
+    mCheckboxGroup,
+    mCheckbox
   },
   mounted() {
-
+    this.$on("mCheckboxGroupChange", function (event) {
+      console.log(event)
+      this._checkBoxChange(event)
+    })
+  },
+  methods: {
+    groupChange(event) {
+      console.log(event)
+    }
   }
 }
 </script>

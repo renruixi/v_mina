@@ -2,7 +2,9 @@
     <button :class="[buttonCls,typeCls,sizeCls,hoverCls]"
             :type="type"
             @mousedown="_hoverIn"
+            @touchstart="_hoverIn"
             @mouseup="_hoverLeave"
+            @touchend="_hoverLeave"
             :disabled="disabled"
             :plain="plain"
             :size="size">
@@ -55,7 +57,7 @@ export default {
     data() {
         return {
             isHovered: false,
-            hoverLeaveTimer: null,
+            hoverInTimer: null,
             hoverLeaveTimer: null,
             sizeCls() {
                 return "m_button_" + this.size
@@ -69,7 +71,6 @@ export default {
         buttonCls() {
             return {
                 "m_button": true,
-                "button-hover": this.isHovered,
                 "m_button_disabled": this.disabled
             }
         },

@@ -1,7 +1,9 @@
 <template>
   <div :class="viewCls"
-       @mousedown="_hoverIn($event)"
-       @mouseup="_hoverLeave($event)">
+       @mousedown="_hoverIn"
+       @touchstart="_hoverIn"
+       @mouseup="_hoverLeave"
+       @touchend="_hoverLeave">
     <slot></slot>
   </div>
 </template>
