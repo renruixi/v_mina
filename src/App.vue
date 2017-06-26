@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <m-slider value="123" :maxlength="10" :minlength="8"></m-slider>
+    <smy-picker></smy-picker>
   </div>
 </template>
 
 <script>
-import mSlider from './components/form/slider'
+import smyPicker from 'layout/picker/picker'
 
 export default {
   name: 'app',
@@ -15,12 +15,14 @@ export default {
     }
   },
   components: {
-    mSlider
+    smyPicker
   },
   methods: {
     groupChange(event) {
       console.log(event.unchecked)
     }
+  },
+  mounted() {
   }
 }
 </script>

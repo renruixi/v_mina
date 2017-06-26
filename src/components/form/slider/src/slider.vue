@@ -12,9 +12,10 @@
                         backgroundColor:selectedColor
                     }"></div>
             <div class="m_slider_step"
-                 v-for="items in stepArray"
+                 v-for="(items,index) in stepArray"
                  :style="{'left':items+'%'}"
-                 v-if="showStep"></div>
+                 v-if="showStep"
+                 :key="index"></div>
             <div class="m_slider_button"
                  @mouseenter="handleMouseEnter"
                  @mouseleave="handleMouseLeave"
